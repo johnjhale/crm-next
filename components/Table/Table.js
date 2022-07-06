@@ -8,10 +8,15 @@ function Table() {
     const [headers, setHeaders] = useState(null);
     const [entries, setEntries] = useState(null);
     const [popup, setPopup] = useState(null);
-
+    const [order, setOrder] = useState(null);
+    const [desc, setDesc] = useState(false);
+    
     // Get Tables for Navbar
     useEffect(() => {
-        let url = `/admin/${tableName}`;
+        let params = '?';
+        params += order ? `order=${order}&` : '';
+        params += desc ? `desc=${desc}&` : '';
+        let url = `/admin/${tableName}${params}`;
 
         //Get Headers
         axios.get(url).then(data => {
@@ -20,19 +25,26 @@ function Table() {
         }).catch(err => {
             console.log(err);
         })
-    }, []);
+    }, [tableName, order, desc]);
 
     let displayHeaders = '';
     let displayEntries = '';
 
     if (headers && headers.length) {
-        displayHeaders = headers.map(e => {
-            return <th className="table__header">{e.name}</th>
+        displayHeaders = headers.map(header => {
+            return <th className="table__header" onClick={(e) => updateParams('order', header.name)}>{header.name}</th>
         });
     }
 
     if (entries && entries.length) {
         updateDisplayHeaders();
+    }
+
+    function updateParams(param, val) {
+        if (param === 'order') {
+            setDesc(!desc);
+            setOrder(val);
+        }
     }
 
     function updateDisplayHeaders() {
