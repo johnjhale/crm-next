@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import axios from '../../../axios';
 
 function Navbar() {
@@ -6,24 +8,25 @@ function Navbar() {
 
     // Get Tables for Navbar
     useEffect(() => {
-        const url = '/application/1/item';
+        const url = '/admin';
         axios.get(url).then(data => {
-            console.log(data.data.items);
-            setTables(data.data.items.map(e => {
-                return <a className="nav__item" href="#">{e.name[0].toUpperCase() + e.name.slice(1)}</a>
+            setTables(data.data.tables.map(e => {
+                return <Link href={`/admin/${e}`}><a className="nav__item">{e[0].toUpperCase() + e.slice(1)}</a></Link>
             }));
         }).catch(err => {
             console.log(err);
         })
     }, []);
 
+    console.log(tables);
+
     return (
         <nav className="nav">
             <div className="nav__logo">&nbsp;</div>
             <div className="nav__items">
-                <a className="nav__item" href="#">Home</a>
+                <Link href="/admin"><a className="nav__item">Home</a></Link>
                 {tables}
-                <a className="nav__item" href="#">Logout</a>
+                <Link href="/logout"><a className="nav__item">Logout</a></Link>
             </div>
         </nav>
     )

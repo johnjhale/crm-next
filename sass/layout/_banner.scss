@@ -1,0 +1,112 @@
+.banner {
+    width: 100%;
+    height: 28rem;
+    
+    &__text{
+        position: absolute;
+        font-size: 4.5rem;
+        word-spacing: 2rem;
+        letter-spacing: 3px;
+        padding-left: 10rem;
+        top: 40%;
+        color: white;
+    }
+    
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 6rem;
+
+    @include respond(phone-large){
+        margin-bottom: 8rem;
+    }
+
+    &__text {
+        font-size: 5rem;
+        word-spacing: 1rem;
+        letter-spacing: 2px;
+
+        &--white {
+            color: $color-grey-light-1;
+        }
+
+        @include respond(phone-large){
+            line-height: 4rem;
+            margin-top: 1.7rem;
+            padding: 0 3rem;
+        }
+
+        @include respond(phone){
+            letter-spacing: 0;
+            margin-top: 1.2rem;
+            font-size: 4.7rem;
+        }
+
+        @include respond(phone-med-small){
+            margin-top: 1.2rem;
+            font-size: 4rem;
+        }
+        @include respond(phone-small){
+            margin-top: 0.3rem;
+            font-size: 3.5rem;
+        }
+    }
+
+    &__banner-container {
+        position: absolute;
+        z-index: -998;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 70rem;
+        max-height: 140rem;
+        overflow: hidden;
+        &--home {
+            height: 23.5rem;
+            max-height: 23.5rem;
+        }
+        &--other {
+            height: 23.5rem;
+            max-height: 23.5rem;
+        }
+        
+        @include respond(phone-large){
+            height: 21.2rem;
+        }
+        @include respond(phone){
+            height: 20rem;
+        }
+        @include respond(phone-small){
+            height: 18rem;
+        }
+        &--restaurant{
+            @include respond(phone-large){
+                height: 70rem;
+            }
+            @include respond(phone){
+                height: 70rem;
+            }
+            @include respond(phone-small){
+                height: 70rem;
+            }
+        }
+    }
+    &__overlay {  
+        position: absolute;
+        left: 0;
+        top: 0rem;
+        z-index: -999;
+        width: 100%;
+        height: 150%;
+        background-color: rgba($color-grey-dark-3, 0.4);
+    }
+    &__banner {
+        position: absolute;
+        left: 0;
+        top: 0rem;
+        z-index: -1000;
+        width: 100%;
+        height: auto;
+    }
+}

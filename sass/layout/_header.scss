@@ -1,0 +1,25 @@
+.header {
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    height: 10rem;
+
+    background-color: $color-grey-dark-4;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 3rem;
+    border-bottom: 3px solid $color-grey-dark-5;
+    box-shadow: 0 2px 5px -2px black;
+
+    &__transition {
+        z-index: -100;
+        position: absolute;
+        width: 100%;
+        height: 20rem;
+    }
+
+    @include respond(phone-large) {
+        height: 8rem;
+    }
+}

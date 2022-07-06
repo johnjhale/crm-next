@@ -1,0 +1,31 @@
+.table {
+    border-collapse: collapse;
+    margin: 2.5rem;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    &__header,
+    &__row {
+        padding: 1.2rem 1.5rem;
+    }
+
+    &__header {
+        background-color: $color-primary;
+        color: #ffffff;
+        text-align: left;
+        @include hover($color-primary-dark, 0px);
+    }
+
+    &__row {
+        @include hover($color-grey-light-2, 0px);
+    }
+
+    tr {
+        &:nth-of-type(even) {
+            background-color: $color-grey-light-1;
+        }
+    }
+
+
+}

@@ -1,0 +1,62 @@
+.form {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0;
+    }
+
+    &__checkbox-group,
+    &__radio-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0;
+        div {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0;
+        }
+    }
+
+    &__label {
+        font-weight: bold;
+        font-size: 1.8rem;
+        margin-bottom: -3px;
+    }
+
+    &__input {
+        width: 30rem;
+        height: 2.5rem;
+        padding-left: 0.5rem;
+    }
+
+    &__checkbox,
+    &__radio {
+        margin-right: 1.5rem;
+        margin-left: 2rem;
+        // font-size: rem;
+        width: 2rem;
+        height: 2rem;
+        accent-color: $color-primary;
+    }
+
+    &__submit {
+        background-color: $color-primary;
+        color: $color-grey-light-1;
+        width: 20rem;
+        height: 4rem;
+        border: 2px solid rgba($color-primary-dark, 0.2);
+        @include hover($color-primary-dark, -3px);
+    }
+    
+}

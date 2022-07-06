@@ -1,0 +1,33 @@
+.nav {
+    display: flex;
+    z-index: 1000;
+    padding: 0rem 3rem;
+    height: 6rem;
+    align-items: center;
+    background-color: $color-grey-dark-3;
+
+    &__logo {
+        width: 10rem;
+    }
+
+    &__items {
+        font-size: 1.8rem;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__item {
+        padding: 1.5rem 2rem;
+        height: 6rem;
+        color: $color-white;
+        &:last-of-type {
+            position: absolute;
+            right: 4rem;
+            border-radius: 0.5rem;
+            background-color: $color-grey-light-1;
+            color: $color-grey-dark-3;
+        }
+    }
+}
